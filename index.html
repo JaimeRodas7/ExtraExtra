@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edición Especial 20 Años</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+ 
+<body>
+
+<div id="pantalla-carta" class="overlay-carta">
+    <div class="periodico-container" onclick="abrirPeriodico()">
+        <img src="carta.png" alt="Periódico Antiguo" class="periodico-img">
+    </div>
+</div>
+
+<div class="periodico-wrapper animate-entrance" id="periodico-contenido" style="display: none;">
+    <div class="periodico">
+        <header class="header-main">
+            <div class="info-top">
+                <span>EDICIÓN LIMITADA DE CUMPLEAÑOS</span>
+                <span>CELEBRANDO DOS DÉCADAS DE GRANDEZA</span>
+            </div>
+            <section class="name">
+                <h1>The Birthday Times</h1>
+            </section>
+            <section class="info-bar">
+                <p>VOL. 20 - NO. 1</p>
+                <p>CIUDAD DE LA FIESTA, 2026</p>
+                <p>PRECIO: UNA REBANADA DE PASTEL</p>
+            </section>
+        </header>
+
+        <section class="headline">
+            <h1>¡EXTRA, EXTRA! HOY HACE 20 AÑOS NACIÓ LISBETH ARGUETA ARGUETA FRANCO</h1>
+            <p class="subheadline">El mundo celebra dos décadas desde la llegada de una persona increíble. Expertos aseguran que esta será su mejor etapa.</p>
+        </section>
+
+        <hr class="double-hr">
+
+        <main class="content-grid">
+            <div class="col-left">
+                <article>
+                    <h2>CONFIRMADO: 20 años haciendo historia</h2>
+                    <p><strong>Por: Tus seres queridos.</strong> Desde el día de tu nacimiento, los niveles de diversión y alegría en el mundo han superado todos los récords históricos.</p>
+                    <p>"Nadie sabe cómo logra ser tan genial con solo 20 años de experiencia, es un talento natural", declaró un experto en cumpleaños.</p>
+                </article>
+
+                <div class="fe-erratas">
+                    <h4>FE DE ERRATAS</h4>
+                    <p>En nuestra edición de ayer, publicamos un artículo afirmando que existían únicamente Siete Maravillas en el mundo. El equipo editorial pide disculpas a nuestros lectores por este grave descuido: olvidamos incluir la octava y más importante maravilla, que hoy cumple 20 años y está leyendo este periódico.</p>
+                </div>
+
+                <div class="carta-manuscrita-box" onclick="mostrarCartaMano()">
+                    <h3>📝 CARTA AL EDITOR</h3>
+                    <p>Se ha interceptado una correspondencia escrita de puño y letra. <br><br><strong>[Toca aquí para desdoblar y leer]</strong></p>
+                </div>
+
+            </div>
+
+            <div class="col-center">
+                <div class="quote-box">
+                    "Toma 20 años convertirse en un clásico. ¡Feliz Cumpleaños!"
+                </div>
+
+                <div class="sopa-seccion" onclick="jugarSopa()">
+                    <p class="sopa-titulo"> SOPA DE FIESTA</p>
+                    <div id="mini-sopa" class="sopa-grid-mini"></div>
+                    <p class="sopa-instruccion">(Clic para ampliar y jugar)</p>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <div class="las-estrellas">
+                    <h3>LAS ESTRELLAS DICEN</h3>
+                    <p><strong>ALINEACIÓN:</strong> Los astros predicen un año lleno de éxitos, aventuras increíbles y muchísimo pastel. Prepárate porque este será un capítulo legendario en tu vida.</p>
+                </div>
+
+                <div class="ad-box" onclick="mostrarAlerta()">
+                    <p class="ad-title">ANUNCIO CLASIFICADO</p>
+                    <p><strong>SE BUSCA:</strong> Cumpleañera dispuesta a festejar a lo grande. 
+                    <br><small>(Haz clic para confirmar asistencia)</small></p>
+                </div>
+
+                <div class="clima">
+                    <h3>PRONÓSTICO</h3>
+                    <p>☀️ 100% de probabilidades de abrazos, regalos y fiesta sorpresa.</p>
+                </div>
+            </div>
+        </main>
+
+        <hr class="separator">
+
+        <section class="mensaje-cumpleanos">
+            <h2 class="titulo-mensaje">EDITORIAL: Un Muy Feliz Cumpleaños</h2>
+            <div class="columnas-mensaje">
+                <p class="texto-mensaje"><span class="letra-capital">H</span>oy, las rotativas de este periódico se detienen por la noticia más hermosa del año: celebrar tus 20 primaveras. Cumplir dos décadas no es solo cambiar de número, es iniciar el capítulo más emocionante de tu vida, lleno de páginas en blanco listas para ser escritas con tus sueños, metas y aventuras.</p>
+                <p class="texto-mensaje">Queremos dedicar esta edición especial para recordarte lo infinitamente valiosa que eres. Que este nuevo año de vida te traiga tantas sonrisas como las que tú le regalas al mundo todos los días. Eres luz, eres alegría y hoy te mereces el universo entero. ¡Feliz cumpleaños, Lisbeth! Que hoy y siempre la felicidad sea tu mejor titular.</p>
+            </div>
+        </section>
+
+        <hr class="separator">
+
+        <section class="floriografia-seccion">
+            <div class="adorno-floral">❀</div>
+            <h3 class="floriografia-titulo">Botánica del Corazón</h3>
+            <h4 class="floriografia-sub">LA FLOR DE TUS VEINTE AÑOS</h4>
+            <p class="floriografia-texto">
+                Si tus veinte años fueran una flor, serían sin duda el lisianthus: símbolo de aprecio, carisma y amor profundo. Así como esta flor tarda en florecer pero deslumbra cuando lo hace con una elegancia inigualable, hoy celebramos la hermosa mujer en la que te has convertido. Tu simple presencia hace que todo a tu alrededor esté lleno de luz, calma y un color inconfundible. Felices 20 primaveras, Lisbeth.
+            </p>
+            <div class="adorno-floral">❀</div>
+        </section>
+
+        <footer class="interactive-footer">
+            <h3>¿CÓMO VAMOS A CELEBRAR HOY?</h3>
+            <div class="btn-group">
+                <button onclick="respuestaCumple('pastel')">¡Comiendo pastel!</button>
+                <button onclick="respuestaCumple('fiesta')">¡Mucha fiesta!</button>
+                <button onclick="respuestaCumple('viaje')">¡De viaje!</button>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
