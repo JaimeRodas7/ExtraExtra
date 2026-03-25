@@ -204,7 +204,7 @@ function respuestaCumple(tipo) {
 function mostrarCartaMano() {
     Swal.fire({
         title: 'Correspondencia Inédita',
-        text: 'Escrita con puño, letra.',
+        text: 'Escrita con puño y letra.',
         // AQUÍ ESTÁ EL CAMBIO CON EL NOMBRE EXACTO DE TU IMAGEN
         imageUrl: 'cartaamano.jpeg', 
         imageWidth: 600,
