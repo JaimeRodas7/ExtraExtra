@@ -20,34 +20,61 @@ function crearGridAleatorio() {
     
     let palabrasAcomodar = [...palabrasOcultas].sort((a, b) => b.length - a.length);
 
+    // Definimos las 8 direcciones posibles usando coordenadas [cambioEnFila, cambioEnColumna]
+    const direcciones = [
+        [0, 1],   // Horizontal: de Izquierda a Derecha
+        [0, -1],  // Horizontal Invertido: de Derecha a Izquierda
+        [1, 0],   // Vertical: de Arriba a Abajo
+        [-1, 0],  // Vertical Invertido: de Abajo a Arriba
+        [1, 1],   // Diagonal: Arriba-Izquierda a Abajo-Derecha
+        [-1, -1], // Diagonal Invertido: Abajo-Derecha a Arriba-Izquierda
+        [1, -1],  // Diagonal: Arriba-Derecha a Abajo-Izquierda
+        [-1, 1]   // Diagonal Invertido: Abajo-Izquierda a Arriba-Derecha
+    ];
+
     palabrasAcomodar.forEach(palabra => {
         let colocada = false;
         let intentos = 0;
 
-        while (!colocada && intentos < 200) { 
+        while (!colocada && intentos < 300) { // Aumentamos un poco los intentos para las diagonales
             intentos++;
-            const dir = Math.random() < 0.5 ? 'H' : 'V'; 
+            
+            // Elegir una dirección al azar de la lista
+            const dir = direcciones[Math.floor(Math.random() * direcciones.length)];
+            const df = dir[0]; // Cambio en la fila
+            const dc = dir[1]; // Cambio en la columna
+
+            // Elegir un punto de inicio al azar
             const fila = Math.floor(Math.random() * tamanoSopa);
             const col = Math.floor(Math.random() * tamanoSopa);
 
-            if (dir === 'H' && col + palabra.length > tamanoSopa) continue;
-            if (dir === 'V' && fila + palabra.length > tamanoSopa) continue;
+            // Calcular dónde terminará la palabra para ver si cabe en la cuadrícula
+            const filaFin = fila + (palabra.length - 1) * df;
+            const colFin = col + (palabra.length - 1) * dc;
+
+            // Verificar si la palabra se sale de los límites
+            if (filaFin < 0 || filaFin >= tamanoSopa || colFin < 0 || colFin >= tamanoSopa) {
+                continue; // Si se sale, intentamos con otras coordenadas
+            }
 
             let colision = false;
+            // Verificar si el camino está libre o si las letras coinciden (cruce de palabras)
             for (let i = 0; i < palabra.length; i++) {
-                let f = dir === 'H' ? fila : fila + i;
-                let c = dir === 'H' ? col + i : col;
+                let f = fila + i * df;
+                let c = col + i * dc;
                 
-                if (grid[f][c] !== '') {
+                // Si la celda no está vacía y la letra no es la misma, hay colisión
+                if (grid[f][c] !== '' && grid[f][c] !== palabra[i]) {
                     colision = true;
                     break;
                 }
             }
 
+            // Si no hay colisiones, colocamos la palabra definitivamente
             if (!colision) {
                 for (let i = 0; i < palabra.length; i++) {
-                    let f = dir === 'H' ? fila : fila + i;
-                    let c = dir === 'H' ? col + i : col;
+                    let f = fila + i * df;
+                    let c = col + i * dc;
                     grid[f][c] = palabra[i];
                 }
                 colocada = true;
@@ -55,6 +82,7 @@ function crearGridAleatorio() {
         }
     });
 
+    // Rellenar los espacios vacíos con letras aleatorias
     const letrasAleatorias = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
     for (let f = 0; f < tamanoSopa; f++) {
         for (let c = 0; c < tamanoSopa; c++) {
